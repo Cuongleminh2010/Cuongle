@@ -174,8 +174,8 @@ def handle_ping(message):
         message,
         (
             "*[✅] Thành công [✅]*\n\n"
-            f"🌐 *Loại tấn công:* {ip_port}\n"
-            f"⚙️ *Tipo:* {attack_type}\n"
+            f"🌐 *UDP Trận:* {ip_port}\n"
+            f"⚙️ *Loại Tấn Công:* {attack_type}\n"
             f"🧟‍♀️ *Threads:* {threads}\n"
             f"⏳ *Thời Gian Lag Trận (ms):* {duration}\n\n"
             f"💠 Cuong 💠"
