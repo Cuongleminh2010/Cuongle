@@ -49,7 +49,7 @@ def handle_start(message):
             dias_restantes = (expiration_date - datetime.now()).days
             vip_status = (
                 f"✅ Người Dùng VIP!\n"
-                f"⏳ Thời gian: {dias_restantes} dia(s)\n"
+                f"⏳ Số Ngày: {dias_restantes} dia(s)\n"
                 f"📅 Ngày Hết Hạng: {expiration_date.strftime('%d/%m/%Y %H:%M:%S')}"
             )
     else:
@@ -74,11 +74,11 @@ def handle_start(message):
             "📌 *Cách sài:*"
             """
 ```
-/crash <IP/HOST:PORT> <THREADS> <Thời gian lag>```\n"""
+/crash <UDP> <IP/HOST:PORT> <THREADS> <Thời gian lag>```\n"""
             "💡Ví Dụ"
             """
 ```
-/crash 143.92.125.230:10013 10 900```\n"""
+/crash UDP 143.92.125.230:10013 10 900```\n"""
             "💠 Cuong 💠"
         ),
         reply_markup=markup,
@@ -115,7 +115,7 @@ def handle_addvip(message):
         )
         conn.commit()
 
-    bot.reply_to(message, f"✅ {telegram_id} VIP {days} số.")
+    bot.reply_to(message, f"✅ {telegram_id} VIP {days} số ngày dùng vip.")
 
 
 @bot.message_handler(commands=["crash"])
@@ -149,9 +149,9 @@ def handle_ping(message):
             (
                 "❌ **\n\n"
                 "📌 *:*\n"
-                "`/crash <IP/HOST:PORT> <THREADS> <MS>`\n\n"
+                "`/crash <UDP> <IP/HOST:PORT> <THREADS> <MS>`\n\n"
                 "💡 *:*\n"
-                "`/crash 143.92.125.230:10013 10 900`"
+                "`/crash UDP 143.92.125.230:10013 10 900`"
             ),
             parse_mode="Markdown",
         )
@@ -173,8 +173,8 @@ def handle_ping(message):
     bot.reply_to(
         message,
         (
-            "*[✅] YES [✅]*\n\n"
-            f"🌐 *Puerto:* {ip_port}\n"
+            "*[✅] Thành công [✅]*\n\n"
+            f"🌐 *Loại tấn công:* {ip_port}\n"
             f"⚙️ *Tipo:* {attack_type}\n"
             f"🧟‍♀️ *Threads:* {threads}\n"
             f"⏳ *Thời Gian Lag Trận (ms):* {duration}\n\n"
